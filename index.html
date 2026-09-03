@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScrollSmack — tough-love screen time for Android</title>
+<meta name="description" content="Pick the apps that eat your evenings. Cross your continuous-use limit and one of 8 roast personas takes over your screen until you type it out. No network permission at all.">
+
+<!-- Open Graph / Twitter card. og:url and og:image MUST be absolute for crawlers.
+     feature_graphic_1024x500.png sits next to this file in the deploy repo. -->
+<meta property="og:title" content="ScrollSmack — tough-love screen time for Android">
+<meta property="og:description" content="Other apps report your screen time. This one interrupts it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pratapkumar1928.github.io/scrollsmack-web/">
+<meta property="og:image" content="https://pratapkumar1928.github.io/scrollsmack-web/feature_graphic_1024x500.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --bg:#000; --fg:#f2f2f2; --dim:#8a8a8a; --rule:#242424;
+    --red:#ff2d2d; --yellow:#ffd400; --coral:#ffb4ab; --card:#0c0c0c;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+    font-size:17px;line-height:1.65;-webkit-text-size-adjust:100%;
+  }
+  .stripe{height:10px;background:repeating-linear-gradient(135deg,var(--yellow) 0 14px,#000 14px 28px);}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  header{padding:44px 0 8px}
+  .mark{font-family:var(--mono);font-weight:700;font-size:26px;letter-spacing:.06em;margin:0}
+  .mark .a{color:var(--red)}
+  .mark .b{color:#fff}
+  h1{font-size:34px;line-height:1.15;letter-spacing:-.01em;margin:26px 0 10px}
+  .sub{font-size:19px;color:var(--fg);margin:0 0 22px}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--yellow);letter-spacing:.12em;text-transform:uppercase;margin:0}
+  h2{
+    font-size:14px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;
+    color:var(--yellow);margin:46px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--rule);
+  }
+  p{margin:0 0 16px}
+  ul{margin:0 0 16px;padding-left:22px}
+  li{margin-bottom:9px}
+  strong{color:#fff}
+
+  /* Call to action ------------------------------------------------------- */
+  .cta{border-left:3px solid var(--red);background:var(--card);padding:22px 22px;margin:8px 0 8px}
+  .cta h2{margin-top:0;border:0;padding:0;color:#fff;font-size:15px}
+  form{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 6px}
+  input[type=email]{
+    flex:1 1 240px;background:#151515;border:1px solid var(--rule);color:var(--fg);
+    font-family:var(--sans);font-size:16px;padding:13px 14px;border-radius:0;
+  }
+  input[type=email]:focus{outline:2px solid var(--yellow);outline-offset:0}
+  button{
+    background:var(--coral);color:#000;border:0;font-family:var(--mono);font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;font-size:14px;padding:13px 20px;cursor:pointer;
+  }
+  button:hover{background:var(--yellow)}
+  .fineprint{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.03em;margin:6px 0 0}
+  .playbtn{
+    display:none;/* flip to inline-block once open testing is live and set href */
+    background:var(--yellow);color:#000;text-decoration:none;font-family:var(--mono);font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:15px 24px;
+  }
+  #done{display:none;color:var(--yellow);font-family:var(--mono);font-size:14px;margin:10px 0 0}
+
+  .personas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+  .p{background:var(--card);border:1px solid var(--rule);padding:14px 15px}
+  .p .name{font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .p .line{font-size:15px;color:var(--fg)}
+
+  a{color:var(--coral)} a:hover{color:var(--yellow)}
+  footer{margin:56px 0 0;padding:22px 0 46px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:13px;color:var(--dim)}
+  @media (max-width:560px){
+    body{font-size:16px} h1{font-size:28px} .personas{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+
+<header>
+  <div class="wrap">
+    <p class="mark"><span class="a">SCROLL</span><span class="b">SMACK</span></p>
+    <h1>Other apps report your screen&nbsp;time.<br>This one interrupts&nbsp;it.</h1>
+    <p class="sub">Pick the apps that eat your evenings and set a continuous-use limit.
+    Cross it and one of eight roast personas takes over your screen — the only way out
+    is typing <strong>“I am wasting my time.”</strong></p>
+    <p class="kicker">Android · Free · No accounts · No network permission at all</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="cta">
+    <h2>Get told when it’s on Google Play</h2>
+
+    <!-- FORMSPREE SETUP (one-time, ~60s):
+         1. Sign in at https://formspree.io (use scrollsmack.app@gmail.com).
+         2. + New form → name it "ScrollSmack waitlist" → copy the endpoint
+            (it looks like  https://formspree.io/f/abcdwxyz ).
+         3. Replace FORMSPREE_ENDPOINT in the <form action> below — that's the
+            only edit; the script auto-detects a real formspree.io URL.
+         4. Confirm the first test submission from the email Formspree sends you.
+         Until step 3 is done the form still works: it opens a pre-filled email. -->
+    <form action="FORMSPREE_ENDPOINT" method="POST" id="wl">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address">
+      <input type="hidden" name="_subject" value="ScrollSmack waitlist signup">
+      <input type="hidden" name="_gotcha" style="display:none">
+      <button type="submit">Notify me</button>
+    </form>
+    <p id="done">You’re on the list. One email, on launch day. Nothing else.</p>
+    <p class="fineprint">One email when it launches — no list, no newsletter, no sharing.
+      Trouble? <a href="mailto:scrollsmack.app@gmail.com?subject=ScrollSmack%20waitlist%20signup">email me</a>.</p>
+
+    <!-- When open testing is live: set href to the play.google.com URL,
+         change .playbtn display to inline-block, and delete the form above. -->
+    <a class="playbtn" href="#">Get it on Google Play</a>
+  </div>
+
+  <h2>How it works</h2>
+  <ul>
+    <li><strong>You choose which apps get watched.</strong> Nothing else is tracked.</li>
+    <li><strong>The timer measures continuous use</strong>, not daily totals. Step away
+    for 30 seconds and it pauses; longer and it resets.</li>
+    <li><strong>Cross the limit and the roast takes over the screen.</strong> Tapping
+    back doesn’t close it. You type the phrase — about four seconds — and that’s long
+    enough to notice what you were doing.</li>
+    <li><strong>It can’t stop you.</strong> Not a blocker, not parental control. The
+    phrase is friction, not a lock.</li>
+  </ul>
+
+  <h2>Eight personas, forty lines</h2>
+  <div class="personas">
+    <div class="p"><span class="name">The Grandma</span><span class="line">“We were bored too. We just called it ‘an afternoon’ and went outside.”</span></div>
+    <div class="p"><span class="name">The Nature Narrator</span><span class="line">“Here we observe the human in its natural habitat, motionless, bathed in blue light.”</span></div>
+    <div class="p"><span class="name">The Gym Bro</span><span class="line">“Your thumb is the only muscle that’s seen a workout today.”</span></div>
+    <div class="p"><span class="name">The Petty Ex</span><span class="line">“Hours of eye contact with a screen. I got fourteen seconds, once.”</span></div>
+  </div>
+  <p class="fineprint">Also: The Voice · The Court Partner · The Disappointed Mom · The Sassy Best Friend. Never the same persona twice in a row.</p>
+
+  <h2>Completely offline</h2>
+  <p>ScrollSmack has no <code style="font-family:var(--mono);color:var(--coral)">INTERNET</code>
+  permission. Not “we don’t collect data” — there is no network channel in the app, so
+  there is nowhere for data to go. No accounts, no analytics, no ads. Cloud backup and
+  device transfer are off too. A factory reset loses your settings and you re-pick your
+  apps. Worth it.</p>
+  <p><a href="https://pratapkumar1928.github.io/scrollsmack-privacy/">Privacy policy →</a></p>
+
+  <footer>ScrollSmack — tough-love screen time for Android. Questions:
+  <a href="mailto:scrollsmack.app@gmail.com">scrollsmack.app@gmail.com</a></footer>
+</main>
+
+<div class="stripe"></div>
+
+<script>
+  var f = document.getElementById('wl');
+  var MAIL = 'scrollsmack.app@gmail.com';
+  function mailFallback(email){
+    window.location.href = 'mailto:' + MAIL
+      + '?subject=' + encodeURIComponent('ScrollSmack waitlist signup')
+      + '&body='    + encodeURIComponent('Add me to the ScrollSmack launch list: ' + (email || ''));
+  }
+  f && f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = (f.email.value || '').trim();
+    var configured = /formspree\.io\/f\//.test(f.getAttribute('action'));
+    if (!configured){ mailFallback(email); return; }   // endpoint not pasted in yet
+    fetch(f.action, {method:'POST', body:new FormData(f), headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if (!r.ok) throw 0;
+        f.style.display = 'none';
+        document.getElementById('done').style.display = 'block';
+      })
+      .catch(function(){ mailFallback(email); });       // network/endpoint error → email
+  });
+</script>
+</body>
+</html>
