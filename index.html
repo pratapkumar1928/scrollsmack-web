@@ -508,6 +508,24 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .fazier-badge {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+  }
+
+  .fazier-badge:hover {
+    opacity: 1;
+  }
+
+  .fazier-badge img {
+    height: 26px;
+    width: auto;
+    display: block;
   }
 
   a {
@@ -780,6 +798,7 @@
         <a href="https://pratapkumar1928.github.io/scrollsmack-privacy/">Privacy Policy</a>
         <a href="mailto:scrollsmack.app@gmail.com">Contact Support</a>
         <a href="https://play.google.com/store/apps/details?id=com.scrollsmack.app">Google Play Store</a>
+        <a class="fazier-badge" href="https://fazier.com" target="_blank" rel="noopener"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light" alt="Launched on Fazier" /></a>
       </div>
     </div>
   </footer>
