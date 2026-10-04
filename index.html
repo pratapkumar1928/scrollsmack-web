@@ -595,7 +595,7 @@
     </p>
 
     <div class="action-row">
-      <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app" target="_blank" rel="noopener">
+      <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dhero" target="_blank" rel="noopener">
         <!-- Google Play Vector Icon -->
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
           <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon>
@@ -780,7 +780,7 @@
     <p>
       Install ScrollSmack for free on Google Play. Set your continuous limit, arm the timer, and let the roasts do the work.
     </p>
-    <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app" target="_blank" rel="noopener">
+    <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dbottom" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
         <polygon points="5 3 19 12 5 21 5 3" fill="currentColor"></polygon>
       </svg>
@@ -797,7 +797,7 @@
       <div class="footer-links">
         <a href="https://pratapkumar1928.github.io/scrollsmack-privacy/">Privacy Policy</a>
         <a href="mailto:scrollsmack.app@gmail.com">Contact Support</a>
-        <a href="https://play.google.com/store/apps/details?id=com.scrollsmack.app">Google Play Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dfooter">Google Play Store</a>
         <a class="fazier-badge" href="https://fazier.com" target="_blank" rel="noopener"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light" alt="Launched on Fazier" /></a>
       </div>
     </div>
@@ -812,5 +812,31 @@
   </footer>
 </div>
 
+<script>
+  // Attribute Play installs to whatever sent the visitor here: ?utm_source= / ?ref= on this
+  // page's URL, else the referring site's hostname (directories, reddit, t.co). Falls back to
+  // the static utm_source=website already in each href.
+  (() => {
+    const q = new URLSearchParams(location.search);
+    let src = q.get('utm_source') || q.get('ref');
+    if (!src && document.referrer) {
+      try {
+        const h = new URL(document.referrer).hostname.replace(/^www\./, '');
+        if (h !== location.hostname) src = h;
+      } catch (e) {}
+    }
+    src = (src || '').toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 40);
+    if (!src) return;
+    const camp = (q.get('utm_campaign') || '').replace(/[^\w.-]/g, '').slice(0, 40);
+    document.querySelectorAll('a[href*="play.google.com/store/apps/details"]').forEach(a => {
+      const u = new URL(a.href);
+      const r = new URLSearchParams(u.searchParams.get('referrer') || '');
+      r.set('utm_source', src);
+      if (camp) r.set('utm_campaign', camp);
+      u.searchParams.set('referrer', r.toString());
+      a.href = u.toString();
+    });
+  })();
+</script>
 </body>
 </html>
