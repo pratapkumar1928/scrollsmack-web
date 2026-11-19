@@ -1,7 +1,7 @@
 # scrollsmack-web
 
 Public web presence for ScrollSmack — served via GitHub Pages at
-<https://pratapkumar1928.github.io/scrollsmack-web/>.
+<https://scrollsmack.app/>.
 
 Currently the pre-launch waitlist page (`index.html`). Source of truth is
 `docs/launch/waitlist.html` in the private `scrollsmack` repo — edit there,
