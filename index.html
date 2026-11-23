@@ -125,10 +125,12 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
 .names button[aria-pressed="true"] { color: var(--chalk); padding-left: 16px; }
 .names button[aria-pressed="true"]::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; background: var(--red); }
 .quotebox { min-height: clamp(280px, 30vw, 430px); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-width: 0; }
-#quote { font: 680 clamp(34px, 4.9vw, 74px)/1.02 var(--display); font-stretch: 86%; letter-spacing: -.024em; word-spacing: .05em; text-wrap: balance; }
-#quote span { display: inline-block; animation: word .5s var(--out) both; animation-delay: calc(var(--i) * 22ms); }
+.q blockquote { margin: 0;  font: 680 clamp(34px, 4.9vw, 74px)/1.02 var(--display); font-stretch: 86%; letter-spacing: -.024em; word-spacing: .05em; text-wrap: balance; }
+.q blockquote span { display: inline-block; animation: word .5s var(--out) both; animation-delay: calc(var(--i) * 22ms); }
 @keyframes word { from { opacity: 0; transform: translateY(.22em); filter: blur(5px); } }
-#byline { font: 13px var(--mono); color: var(--soft); }
+.q { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: inherit; margin: 0; flex: 1; }
+.q[hidden] { display: none; }
+.q figcaption { font: 13px var(--mono); color: var(--soft); }
 
 .unlock { background: var(--lift); }
 .typewrap { position: relative; display: block; cursor: text; }
@@ -161,7 +163,21 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
 .giant { display: block; width: 100%; height: auto; margin-bottom: -3.2%; }
 .giant text { fill: #ffffff12; font-family: var(--display); font-weight: 900; font-stretch: 100%; }
 
+.what, .faqgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 110px); align-items: start; }
+.what .head, .faqgrid .head { margin-bottom: 0; }
+.whatcopy { display: grid; gap: 20px; color: var(--soft); font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; max-width: 58ch; }
+.faq { border-top: 1px solid var(--line-2); min-width: 0; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { position: relative; list-style: none; cursor: pointer; padding: 20px 40px 20px 0; font: 500 clamp(17px, 1.4vw, 20px)/1.35 var(--body); transition: color .2s; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before, .faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 14px; height: 2px; background: var(--chalk); transition: transform .3s var(--out); }
+.faq summary::after { transform: rotate(90deg); }
+.faq details[open] summary::after { transform: rotate(0); }
+.faq details p { padding: 0 40px 22px 0; color: var(--soft); max-width: 62ch; animation: fade .4s var(--out); }
+.faq a { color: var(--yellow); text-underline-offset: 3px; }
+
 @media (max-width: 900px) {
+  .what, .faqgrid { grid-template-columns: minmax(0, 1fr); }
   .proto { display: none; }
   .herogrid { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 0; }
   .herotext { padding-bottom: 44px; }
@@ -192,7 +208,8 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
   .heroPhone .phone { transform: none !important; }
 }
 </style>
-<noscript><style>.story{height:auto}.stage{position:static;height:auto;padding-block:64px}.chapter{grid-area:auto;opacity:1;transform:none;margin-bottom:40px}.rail,.storyPhone{display:none}</style></noscript>
+<noscript><style>.story{height:auto}.stage{position:static;height:auto;padding-block:64px}.chapter{grid-area:auto;opacity:1;transform:none;margin-bottom:40px}.rail,.storyPhone{display:none}.q[hidden]{display:flex}.quotebox{gap:44px}</style></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "ScrollSmack: Screen Time Roast", "alternateName": "ScrollSmack", "url": "https://scrollsmack.app/", "description": "A screen time app for Android that interrupts doomscrolling with a full-screen roast. Type the unlock phrase to continue. Free and fully offline.", "operatingSystem": "Android 8.0 or newer", "applicationCategory": "HealthApplication", "image": "https://scrollsmack.app/assets/icon_512.png", "installUrl": "https://play.google.com/store/apps/details?id=com.scrollsmack.app", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 </head>
 <body>
 
@@ -208,10 +225,10 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
     <div class="wrap herogrid">
       <div class="herotext">
         <h1><span class="ln"><span>Your feed</span></span><span class="ln"><span>won’t stop you.</span></span><span class="ln"><span>We will<i class="dot"></i></span></span></h1>
-        <p class="intro">ScrollSmack interrupts your doomscroll with a full-screen roast. The only way back is typing what you’re doing.</p>
+        <p class="intro">ScrollSmack is a screen time app for Android that interrupts your doomscroll with a full-screen roast. The only way back is typing what you’re doing.</p>
         <div class="actions">
           <a class="cta" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dhero" target="_blank" rel="noopener">Get it on Google Play <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <small>Free. No account. Fully offline.</small>
+          <small>Free screen time app. No account. Fully offline.</small>
         </div>
       </div>
       <div class="heroPhone"><div class="phone" id="heroPhone"><div class="glass"><img src="assets/armed.webp" fetchpriority="high" alt="ScrollSmack home screen, armed, with a ten-minute limit on YouTube" width="760" height="1696"></div></div></div>
@@ -224,8 +241,8 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
       <div class="wrap storygrid">
         <div>
           <div class="chapters">
-            <article class="chapter on"><p class="eyebrow">1 of 4</p><h2>Pick your poison.</h2><p>Choose the apps that eat your evenings. Nothing else gets watched.</p></article>
-            <article class="chapter"><p class="eyebrow">2 of 4</p><h2>Set your limit.</h2><p>Give yourself 5, 10, 15 or 30 unbroken minutes, then arm it.</p></article>
+            <article class="chapter on"><p class="eyebrow">1 of 4</p><h2>Pick your poison.</h2><p>Choose the apps that eat your evenings, like TikTok, Instagram, YouTube or Reddit. Nothing else gets watched.</p></article>
+            <article class="chapter"><p class="eyebrow">2 of 4</p><h2>Set your limit.</h2><p>Set a screen time limit of 5, 10, 15 or 30 unbroken minutes, then arm it.</p></article>
             <article class="chapter"><p class="eyebrow">3 of 4</p><h2>Scroll like normal.</h2><p>The clock counts each unbroken session. Leave for more than 30 seconds and it resets.</p></article>
             <article class="chapter"><p class="eyebrow">4 of 4</p><h2>Then it takes over.</h2><p>Your video pauses, Back stops working, and a roast fills the screen until you type your way out.</p></article>
           </div>
@@ -242,11 +259,21 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
   </section>
 
   <section class="block">
+    <div class="wrap what">
+      <div class="head"><p class="eyebrow">What is ScrollSmack?</p><h2>A screen time app that fights back.</h2></div>
+      <div class="whatcopy">
+        <p>ScrollSmack helps you stop doomscrolling on Android. Most screen time apps show you a chart after the hours are gone. ScrollSmack steps in while you’re still scrolling.</p>
+        <p>When one unbroken session on TikTok, Instagram, YouTube, Reddit or any app you choose crosses your limit, a full-screen roast takes over. To keep going, you type “I am wasting my time.” That short pause is designed to break autopilot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
     <div class="wrap">
       <div class="head"><p class="eyebrow">Eight personas, forty roasts</p><h2>Choose who disappoints you.</h2></div>
       <div class="voices">
-        <ul class="names" id="names"></ul>
-        <div class="quotebox"><p id="quote"></p><p id="byline"></p></div>
+        <ul class="names" id="names"><li><button type="button" aria-pressed="true">The Disappointed Mom<span>1</span></button></li><li><button type="button" aria-pressed="false">The Gym Bro<span>2</span></button></li><li><button type="button" aria-pressed="false">The Petty Ex<span>3</span></button></li><li><button type="button" aria-pressed="false">The Grandma<span>4</span></button></li><li><button type="button" aria-pressed="false">The Nature Narrator<span>5</span></button></li><li><button type="button" aria-pressed="false">The Court Partner<span>6</span></button></li><li><button type="button" aria-pressed="false">The Sassy Best Friend<span>7</span></button></li><li><button type="button" aria-pressed="false">The Voice<span>8</span></button></li></ul>
+        <div class="quotebox" id="quotes"><figure class="q"><blockquote>I didn’t raise you to watch strangers eat noodles for two hours.</blockquote><figcaption>The Disappointed Mom</figcaption></figure><figure class="q" hidden><blockquote>Your thumbs are getting more reps today than your legs did all year.</blockquote><figcaption>The Gym Bro</figcaption></figure><figure class="q" hidden><blockquote>Hours of eye contact with a screen. I got fourteen seconds, once.</blockquote><figcaption>The Petty Ex</figcaption></figure><figure class="q" hidden><blockquote>We were bored too. We just called it ‘an afternoon’ and went outside.</blockquote><figcaption>The Grandma</figcaption></figure><figure class="q" hidden><blockquote>Here we observe the human in its natural habitat: motionless, bathed in blue light.</blockquote><figcaption>The Nature Narrator</figcaption></figure><figure class="q" hidden><blockquote>That’s a turnover. The other team is your own free will.</blockquote><figcaption>The Court Partner</figcaption></figure><figure class="q" hidden><blockquote>Bestie, put the phone down.</blockquote><figcaption>The Sassy Best Friend</figcaption></figure><figure class="q" hidden><blockquote>Look up. The room has not changed.</blockquote><figcaption>The Voice</figcaption></figure></div>
       </div>
     </div>
   </section>
@@ -271,6 +298,13 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
         <div class="fact"><strong>No trackers or ads</strong><p>No analytics, no banners, no cloud telemetry.</p></div>
         <div class="fact"><strong>No cloud backup</strong><p>Backup and device transfer are switched off.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap faqgrid">
+      <div class="head"><p class="eyebrow">Questions</p><h2>Screen time, answered.</h2></div>
+      <div class="faq"><details><summary>How do I stop doomscrolling on Android?</summary><p>Install ScrollSmack, pick the apps you lose time in, set a limit and arm it. When one unbroken session crosses that limit, a full-screen roast interrupts you, and you type “I am wasting my time” to continue.</p></details><details><summary>How is ScrollSmack different from Digital Wellbeing?</summary><p>Digital Wellbeing’s app timers work from your daily total. ScrollSmack watches each unbroken session, so it catches the rabbit hole as it happens. Leave for more than 30 seconds and the session resets.</p></details><details><summary>Which apps can I limit?</summary><p>You can limit TikTok, Instagram, YouTube, Reddit or any other app with a launcher icon. ScrollSmack only watches the apps you select, and it runs on Android 8.0 or newer.</p></details><details><summary>Is ScrollSmack free and private?</summary><p>Yes. It is free, with no ads and no account. The app has no internet permission, so it cannot send your data anywhere. Read the <a href="/privacy/">privacy policy</a> for the details.</p></details><details><summary>Can I still use my phone after a roast?</summary><p>Yes. ScrollSmack is a self-control tool and not a parental lock. Press Home or take a call and the roast gets out of the way. To keep using the app that triggered it, you type the phrase.</p></details></div>
     </div>
   </section>
 
@@ -330,34 +364,20 @@ h1 .ln:nth-child(3) > span { animation-delay: 140ms; color: var(--soft); }
   addEventListener('resize', request);
   request();
 
-  // Personas: rotates until someone picks one.
-  const V = [
-    ['The Disappointed Mom', 'I didn’t raise you to watch strangers eat noodles for two hours.'],
-    ['The Gym Bro', 'Your thumbs are getting more reps today than your legs did all year.'],
-    ['The Petty Ex', 'Hours of eye contact with a screen. I got fourteen seconds, once.'],
-    ['The Grandma', 'We were bored too. We just called it ‘an afternoon’ and went outside.'],
-    ['The Nature Narrator', 'Here we observe the human in its natural habitat: motionless, bathed in blue light.'],
-    ['The Court Partner', 'That’s a turnover. The other team is your own free will.'],
-    ['The Sassy Best Friend', 'Bestie, put the phone down.'],
-    ['The Voice', 'Look up. The room has not changed.'],
-  ];
-  const names = $('names'), quote = $('quote');
+  // Personas: rotates until someone picks one. All eight quotes live in the HTML.
+  const buttons = [...$('names').querySelectorAll('button')], quotes = [...document.querySelectorAll('#quotes .q')];
   let voice = 0, auto = !calm, seen = false;
-  V.forEach(([n], i) => {
-    const li = document.createElement('li'), b = document.createElement('button');
-    b.type = 'button'; b.innerHTML = `${n}<span>${i + 1}</span>`;
-    b.onclick = () => { auto = false; quote.setAttribute('aria-live', 'polite'); show(i); };
-    li.append(b); names.append(li);
-  });
   function show(i) {
     voice = i;
-    [...names.querySelectorAll('button')].forEach((b, k) => b.setAttribute('aria-pressed', k === i));
-    quote.innerHTML = V[i][1].split(' ').map((w, k) => `<span style="--i:${k}">${w}</span>`).join(' ');
-    $('byline').textContent = V[i][0];
+    buttons.forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+    quotes.forEach((q, k) => { q.hidden = k !== i; });
+    const line = quotes[i].querySelector('blockquote');
+    line.innerHTML = line.textContent.trim().split(' ').map((w, k) => `<span style="--i:${k}">${w}</span>`).join(' ');
   }
+  buttons.forEach((b, i) => { b.onclick = () => { auto = false; $('quotes').setAttribute('aria-live', 'polite'); show(i); }; });
   show(0);
-  new IntersectionObserver(e => { seen = e[0].isIntersecting; }).observe(quote);
-  setInterval(() => { if (auto && seen && !document.hidden) show((voice + 1) % V.length); }, 4200);
+  new IntersectionObserver(e => { seen = e[0].isIntersecting; }).observe($('quotes'));
+  setInterval(() => { if (auto && seen && !document.hidden) show((voice + 1) % quotes.length); }, 4200);
 
   // The unlock phrase.
   const PHRASE = 'I AM WASTING MY TIME', input = $('typein'), view = $('phrase');
