@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | ScrollSmack</title>
+<meta name="description" content="ScrollSmack collects nothing, transmits nothing, and has no servers. Read the full privacy policy.">
+<link rel="canonical" href="https://scrollsmack.app/privacy/">
+<meta property="og:title" content="ScrollSmack Privacy Policy">
+<meta property="og:description" content="ScrollSmack collects nothing, transmits nothing, and has no servers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scrollsmack.app/privacy/">
+<meta property="og:image" content="https://scrollsmack.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://scrollsmack.app/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root { color-scheme: dark; --ink:#000; --line:#ffffff17; --line-2:#ffffff2b; --chalk:#f4f3ef; --soft:#b4b3ae; --faint:#77776f; --yellow:#EFD14B; --red:#FF2D2D; --stop:#E24242;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace; --out:cubic-bezier(.16,1,.3,1); --gutter:clamp(20px,4.4vw,64px); }
+* { box-sizing:border-box; }
+html { background:var(--ink); scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body { margin:0; background:var(--ink); color:var(--chalk); font:17px/1.7 var(--body); overflow-x:clip; }
+.wrap { max-width:1440px; margin:0 auto; padding-left:max(var(--gutter),env(safe-area-inset-left,0px)); padding-right:max(var(--gutter),env(safe-area-inset-right,0px)); }
+h1,h2,p { margin:0; }
+:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; }
+header.top { position:sticky; top:0; z-index:20; background:#000000b8; -webkit-backdrop-filter:blur(16px) saturate(1.3); backdrop-filter:blur(16px) saturate(1.3); border-bottom:1px solid var(--line); }
+.bar { display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
+.brand { display:flex; align-items:center; gap:10px; font:800 17px var(--display); letter-spacing:-.01em; color:var(--chalk); text-decoration:none; }
+.brand b { color:var(--red); font-weight:inherit; }
+.mark { display:flex; align-items:flex-end; gap:3px; height:18px; } .mark i { width:4px; height:18px; background:var(--yellow); } .mark i:last-child { height:4px; background:var(--stop); }
+.link { font:500 14px var(--body); color:var(--chalk); text-decoration:none; padding:8px 0; }
+@media (hover:hover) { .link:hover { text-decoration:underline; text-underline-offset:4px; } }
+.hero { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+.hero::before { content:""; position:absolute; right:-12%; top:-45%; width:62%; aspect-ratio:1; background:radial-gradient(closest-side,#ff2d2d29,transparent); pointer-events:none; }
+.herogrid { position:relative; display:grid; gap:30px; padding-block:clamp(64px,9vw,128px); }
+.eyebrow { font:12px/1.4 var(--mono); letter-spacing:.08em; color:var(--faint); }
+h1 { font:760 clamp(52px,10vw,150px)/.95 var(--display); font-stretch:86%; letter-spacing:-.03em; word-spacing:.07em; overflow:hidden; padding-bottom:.08em; }
+h1 span { display:block; animation:rise .9s var(--out) both; }
+@keyframes rise { from { transform:translateY(105%); } }
+.dot { display:inline-block; width:.17em; height:.17em; margin-left:.05em; background:var(--stop); }
+.short { max-width:42ch; color:var(--soft); font-size:clamp(19px,1.9vw,25px); line-height:1.45; animation:fade .7s .25s var(--out) both; }
+@keyframes fade { from { opacity:0; transform:translateY(10px); } }
+.layout { display:grid; grid-template-columns:minmax(190px,.5fr) minmax(0,1.5fr); gap:clamp(32px,7vw,120px); padding-block:clamp(52px,7vw,96px); }
+.toc { position:sticky; top:96px; align-self:start; }
+.toc ol { list-style:none; margin:14px 0 0; padding:0; border-top:1px solid var(--line); }
+.toc a { position:relative; display:block; padding:9px 0; border-bottom:1px solid var(--line); color:var(--faint); font-size:14px; text-decoration:none; transition:color .2s, padding-left .35s var(--out); }
+.toc a:hover { color:var(--chalk); } .toc a.on { color:var(--chalk); padding-left:14px; }
+.toc a.on::before { content:""; position:absolute; left:0; top:50%; width:6px; height:6px; margin-top:-3px; background:var(--red); }
+article { max-width:760px; min-width:0; }
+section { scroll-margin-top:96px; padding-bottom:clamp(44px,5vw,68px); margin-bottom:clamp(44px,5vw,68px); border-bottom:1px solid var(--line); display:grid; gap:18px; }
+section:last-child { margin-bottom:0; padding-bottom:0; border-bottom:0; }
+h2 { font:720 clamp(31px,3.5vw,50px)/1.02 var(--display); font-stretch:86%; letter-spacing:-.025em; word-spacing:.06em; text-wrap:balance; }
+section p, li, td { color:var(--soft); }
+strong { color:var(--chalk); font-weight:500; }
+code { font:13.5px var(--mono); color:var(--chalk); background:#ffffff12; padding:2px 5px; overflow-wrap:anywhere; }
+ul { list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+article li { position:relative; padding-left:20px; } article li::before { content:""; position:absolute; left:0; top:.68em; width:6px; height:6px; background:var(--stop); }
+section a { color:var(--yellow); text-underline-offset:3px; overflow-wrap:anywhere; }
+.tablewrap { overflow-x:auto; border-top:1px solid var(--line-2); }
+table { width:100%; border-collapse:collapse; font-size:15px; line-height:1.5; }
+th,td { padding:13px 18px 13px 0; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+thead th { font:12px var(--mono); color:var(--faint); letter-spacing:.06em; }
+tbody th { font-weight:500; color:var(--chalk); width:42%; }
+.close { border-top:1px solid var(--line); overflow:hidden; }
+.foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px; padding-block:18px; font-size:13px; color:var(--faint); }
+.foot a { color:var(--soft); text-decoration:none; } .foot a:hover { color:var(--chalk); }
+.footlinks { display:flex; flex-wrap:wrap; gap:6px 20px; }
+.giant { display:block; width:100%; height:auto; margin-bottom:-3.2%; } .giant text { fill:#ffffff12; font-family:var(--display); font-weight:900; }
+@media (max-width:860px) { .layout { grid-template-columns:minmax(0,1fr); } .toc { display:none; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap bar"><a class="brand" href="/" aria-label="ScrollSmack home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span><b>SCROLL</b>SMACK</span></a><a class="link" href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dprivacy" target="_blank" rel="noopener">Get the app</a></div></header>
+<main>
+  <div class="hero"><div class="wrap herogrid">
+    <p class="eyebrow">Last updated 23 November 2026</p>
+    <h1><span>Privacy Policy<i class="dot"></i></span></h1>
+    <p class="short">ScrollSmack collects nothing, transmits nothing, and has no servers. The app has no network permission at all, so it is not technically capable of sending your data anywhere.</p>
+  </div></div>
+  <div class="wrap layout">
+    <nav class="toc" aria-label="On this page"><p class="eyebrow">On this page</p><ol><li><a href="#what-the-app-stores">What the app stores</a></li><li><a href="#what-the-app-reads">What the app reads</a></li><li><a href="#google-play-ratings">Google Play ratings</a></li><li><a href="#what-the-app-does-not-do">What the app does not do</a></li><li><a href="#children">Children</a></li><li><a href="#permissions-summary">Permissions summary</a></li><li><a href="#changes">Changes</a></li><li><a href="#contact">Contact</a></li></ol></nav>
+    <article><section id="what-the-app-stores"><h2>What the app stores</h2><p>Everything ScrollSmack knows lives only on your device. The app's private storage holds:</p><ul><li><strong>Which apps you chose to track</strong> — the package names you ticked in the picker.</li><li><strong>Your time limit</strong> — the number of minutes you selected.</li><li><strong>Whether it is on, off or paused</strong> — including when a pause ends, when you turned it off (used to time reminders), and when you first turned it on.</li><li><strong>Rating prompt counters</strong> — how many roasts you have dismissed, and how many times and when the app last asked for a rating.</li></ul><p>ScrollSmack also keeps a small <strong>diagnostic log</strong> in its own app folder on your device's shared storage. It holds timestamps for events such as the timer starting or stopping, a pause, a reminder, a phone restart or a limit being crossed, along with the limit in minutes and whether the app's permissions are granted. It does not contain the names of the apps you use, and it is never sent anywhere.</p><p>That is the entire list. Deleting the app deletes it.</p><p>Android's Auto Backup is switched <strong>off</strong> for ScrollSmack, and both cloud backup and device-to-device transfer (Samsung Smart Switch and similar) are explicitly excluded. Your list of tracked apps never leaves the phone even when you migrate to a new one — the trade-off being that you re-pick your apps and limit after a factory reset or a new device.</p></section><section id="what-the-app-reads"><h2>What the app reads</h2><ul><li><strong>Usage access (<code>PACKAGE_USAGE_STATS</code>)</strong> — ScrollSmack asks Android which app is currently in the foreground, roughly once a second, so it can measure how long you have been continuously using an app you chose to track. This reading never leaves your device, which app is on screen is never written to a file, and nothing is associated with an identity — the app has no accounts.</li><li><strong>Installed apps</strong> — to show you a list to choose from, ScrollSmack asks Android for apps that have a launcher icon. This list is displayed to you and not recorded.</li></ul></section><section id="google-play-ratings"><h2>Google Play ratings</h2><p>After you have used ScrollSmack for a few days, it may ask Google Play to show its standard rating prompt. Google Play displays that prompt and handles any rating or review you choose to submit, under Google's own privacy policy. ScrollSmack cannot see whether you rated it or what you wrote.</p></section><section id="what-the-app-does-not-do"><h2>What the app does not do</h2><ul><li>No accounts, sign-in, or identifiers.</li><li>No analytics, crash reporting, advertising, or tracking SDKs.</li><li>No network requests of any kind.</li><li>No cloud backup and no device-to-device transfer of app data.</li><li>No selling or sharing of data with anyone, because no data is collected.</li></ul></section><section id="children"><h2>Children</h2><p>ScrollSmack is not directed at children and collects no data from anyone, including children.</p></section><section id="permissions-summary"><h2>Permissions summary</h2><div class="tablewrap"><table><thead><tr><th scope="col">Permission</th><th scope="col">Why</th></tr></thead><tbody><tr><th scope="row">Usage access</th><td>Measure continuous use of the apps you selected</td></tr><tr><th scope="row">Display over other apps</th><td>Draw the full-screen interruption when you cross your limit</td></tr><tr><th scope="row">Foreground service</th><td>Keep the timer running while you use other apps</td></tr><tr><th scope="row">Notifications</th><td>Show the notification Android requires while the timer runs, and reminders after you turn ScrollSmack off</td></tr><tr><th scope="row">Ignore battery optimizations (optional)</th><td>Stop the system from killing the timer early</td></tr><tr><th scope="row">Run at startup</th><td>Restart the timer after a phone restart or app update if you left it on, and restore reminders</td></tr></tbody></table></div></section><section id="changes"><h2>Changes</h2><p>If this policy ever changes, the updated version will be posted at this same address with a new "last updated" date.</p></section><section id="contact"><h2>Contact</h2><p>Questions about this policy: <a href="mailto:scrollsmack.app@gmail.com">scrollsmack.app@gmail.com</a></p></section></article>
+  </div>
+</main>
+<div class="close"><div class="wrap">
+  <footer class="foot"><span>Tough-love screen time for Android</span><span class="footlinks"><a href="/">Home</a><a href="mailto:scrollsmack.app@gmail.com">Contact Support</a><a href="https://play.google.com/store/apps/details?id=com.scrollsmack.app&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dsite%26utm_content%3Dprivacy">Google Play Store</a></span></footer>
+  <svg class="giant" viewBox="0 0 1000 128" aria-hidden="true"><text x="0" y="118" font-size="140" textLength="1000" lengthAdjust="spacingAndGlyphs">SCROLLSMACK</text></svg>
+</div></div>
+<script>(() => {
+  const links = new Map([...document.querySelectorAll('.toc a')].map(a => [a.hash.slice(1), a]));
+  const mark = id => links.forEach((a, k) => { a.classList.toggle('on', k === id); if (k === id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) mark(e.target.id); }), { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('article section').forEach(s => io.observe(s));
+})();</script>
+</body>
+</html>
